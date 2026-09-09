@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sahyog — Trusted services for your home</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<!-- <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet"> -->
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <div class="header-inner">
+    <div class="logo">
+      <div class="mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 1 0-5.4 5.4L4 17v3h3l5.3-5.3a4 4 0 0 0 5.4-5.4l-2.8 2.8-2-2z"/></svg>
+      </div>
+      Sahyog
+    </div>
+    <nav class="main-nav">
+      <a href="#browse">Find a pro</a>
+      <a href="#how">How it works</a>
+      <a href="#join">For workers</a>
+    </nav>
+    <div class="header-cta">
+      <button class="btn btn-outline" onclick="document.getElementById('browse').scrollIntoView({behavior:'smooth'})">Browse workers</button>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="wrap hero-inner">
+    <div class="hero-eyebrow">HOUSEHOLD SERVICES, VERIFIED</div>
+    <h1>Every service your home needs, one call away.</h1>
+    <p class="sub">Search plumbers, electricians, carpenters and more from workers who've been checked and rated by your neighbors. Find someone, see their details, and reach out directly.</p>
+
+    <div class="search-panel">
+      <div class="search-field">
+        <label for="q">What do you need?</label>
+        <input type="text" id="q" placeholder="e.g. leaking tap, rewiring, painting">
+      </div>
+      <div class="search-field" style="flex:0 1 170px;">
+        <label for="tradeSelect">Services</label>
+        <select id="tradeSelect">
+          <option value="">All works</option>
+        </select>
+      </div>
+      <div class="search-field" style="flex:0 1 170px;">
+        <label for="locInput">Area</label>
+        <input type="text" id="locInput" placeholder="Neighborhood">
+      </div>
+      <button class="btn btn-brass" onclick="document.getElementById('browse').scrollIntoView({behavior:'smooth'})">Search</button>
+    </div>
+
+    <div class="hero-stats">
+      <div><strong id="statWorkers">—</strong>active workers</div>
+      <div><strong id="statTrades">—</strong>trades covered</div>
+      <div><strong>4.8★</strong>average rating</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="browse">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <h2>Browse by service:</h2>
+        <p>Tap a trade to filter, or use the search above for something specific.</p>
+      </div>
+    </div>
+    <div class="chip-row" id="chipRow"></div>
+
+    <div id="loadingRow" class="loading-row">
+      <div class="spinner"></div> Fetching workers from the directory…
+    </div>
+
+    <div class="worker-grid" id="workerGrid"></div>
+    <div class="empty-state" id="emptyState" style="display:none;">
+      No one matches that search yet. Try a different trade or area.
+    </div>
+  </div>
+</section>
+
+<section class="section" id="how" style="background:var(--paper-dim);">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <h2>How it works</h2>
+        <p>Three steps between a household problem and someone standing at your door with the right tools.</p>
+      </div>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="num">1</div>
+        <h4>Search your trade</h4>
+        <p>Filter by job type and neighborhood to see who's available near you.</p>
+      </div>
+      <div class="step">
+        <div class="num">2</div>
+        <h4>Check their profile</h4>
+        <p>Ratings, years of experience, and a verified badge for background-checked pros.</p>
+      </div>
+      <div class="step">
+        <div class="num">3</div>
+        <h4>Connect directly</h4>
+        <p>Call, message on WhatsApp, or send a request — you agree on price and timing together.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="join">
+  <div class="wrap">
+    <div class="join">
+      <div>
+        <h3>Are you a plumber, electrician, or other tradesperson?</h3>
+        <p>List your services on CrewLine and get found by homeowners in your area looking for exactly what you do.</p>
+      </div>
+      <button class="btn btn-brass" onclick="openJoinModal()">Join as a worker</button>
+    </div>
+  </div>
+</section>
+
+<!-- Join-as-worker modal -->
+<div class="modal-overlay" id="joinOverlay">
+  <div class="modal">
+    <button class="modal-close" onclick="closeJoinModal()">×</button>
+    <h3>List your services</h3>
+    <div class="modal-trade">You'll show up in search as soon as you submit.</div>
+    <form id="joinForm">
+      <div class="form-field">
+        <label for="jName">Your name</label>
+        <input type="text" id="jName" required>
+      </div>
+      <div class="form-field">
+        <label for="jTradeLabel">Trade (e.g. Plumber, Electrician)</label>
+        <input type="text" id="jTradeLabel" required>
+      </div>
+      <div class="form-field">
+        <label for="jLocation">Area you serve</label>
+        <input type="text" id="jLocation" required>
+      </div>
+      <div class="form-field">
+        <label for="jRate">Rate per visit (₹)</label>
+        <input type="number" id="jRate" min="0" required>
+      </div>
+      <div class="form-field">
+        <label for="jYears">Years of experience</label>
+        <input type="number" id="jYears" min="0" value="0">
+      </div>
+      <div class="form-field">
+        <label for="jPhone">Phone (with country code)</label>
+        <input type="tel" id="jPhone" placeholder="+91..." required>
+      </div>
+      <div class="form-field">
+        <label for="jBio">Short description</label>
+        <textarea id="jBio" rows="3" placeholder="What you do and what makes you reliable."></textarea>
+      </div>
+      <button type="submit" class="btn btn-brass" style="width:100%; justify-content:center;">Submit listing</button>
+      <div class="confirm-note" id="joinConfirm">You're listed. Homeowners can now find and contact you.</div>
+    </form>
+  </div>
+</div>
+
+<!-- Contact modal -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <h3 id="modalName"></h3>
+    <div class="modal-trade" id="modalTrade"></div>
+
+    <div class="contact-row">
+      <a class="btn btn-outline" id="callLink" href="#"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Call</a>
+      <a class="btn btn-brass" id="waLink" href="#" target="_blank"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg> WhatsApp</a>
+    </div>
+
+    <div class="modal-divider">or send a request</div>
+
+    <form id="requestForm">
+      <div class="form-field">
+        <label for="reqName">Your name</label>
+        <input type="text" id="reqName" required>
+      </div>
+      <div class="form-field">
+        <label for="reqMsg">What do you need done?</label>
+        <textarea id="reqMsg" rows="3" required placeholder="e.g. Bathroom tap has been leaking since yesterday, need it looked at this week."></textarea>
+      </div>
+      <button type="submit" class="btn btn-brass" style="width:100%; justify-content:center;">Send request</button>
+      <div class="confirm-note" id="confirmNote">Request saved. ${name} will see your message in their CrewLine inbox.</div>
+    </form>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div>© 2026 Sahyog. A directory for household services.</div>
+  </div>
+</footer>
+</body>
+</html>
