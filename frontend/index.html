@@ -4,10 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
   <title>Sahyog — Trusted Services for Your Home</title>
-  <title>SAHYOG — Trusted services for your home</title>
-
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,6 +28,7 @@
           <svg
             viewBox="0 0 24 24"
             fill="none"
+            stroke="currentColor"
             stroke-width="2"
             stroke-linecap="round"
             stroke-linejoin="round"
@@ -40,10 +38,7 @@
           </svg>
         </div>
 
-
         <span>Sahyog</span>
-
-
       </div>
 
       <div class="main-nav">
@@ -121,6 +116,16 @@
           >
         </div>
 
+        <!-- Price Range Filter -->
+        <div class="search-field price-field">
+          <label for="priceSelect">Max Budget</label>
+          <select id="priceSelect">
+            <option value="all">Any Price</option>
+            <option value="under400">Under ₹400</option>
+            <option value="400-600">₹400 - ₹600</option>
+            <option value="above600">Above ₹600</option>
+          </select>
+        </div>
 
         <button
           class="btn btn-brass"
@@ -159,7 +164,7 @@
   </section>
 
 
-  <!-- Browse Workers -->
+  <!-- Browse Workers / Find a Pro -->
   <section class="section" id="browse">
 
     <div class="wrap">
@@ -167,10 +172,9 @@
       <div class="section-head">
 
         <div>
-          <h2>Browse by service</h2>
-
+          <h2>Find a Pro</h2>
           <p>
-            Choose a service or search for a specific household need.
+            What kind of professional do you need today? Select a trade or filter by your preferences below.
           </p>
         </div>
 
@@ -210,7 +214,7 @@
         <h3>No workers found</h3>
 
         <p>
-          Try a different service, keyword or area.
+          Try a different service, budget, keyword or area.
         </p>
       </div>
 
@@ -376,24 +380,18 @@
         <div class="form-field">
           <label for="jTradeLabel">Trade</label>
 
-          <input
-            type="text"
-            id="jTradeLabel"
-            placeholder="e.g. Plumber, Electrician"
-            required
-          >
+          <select id="jTradeLabel" required>
+            <option value="" disabled selected>Select trade</option>
+          </select>
         </div>
 
 
         <div class="form-field">
           <label for="jLocation">Area you serve</label>
 
-          <input
-            type="text"
-            id="jLocation"
-            placeholder="e.g. Salt Lake"
-            required
-          >
+          <select id="jLocation" required>
+            <option value="" disabled selected>Select area</option>
+          </select>
         </div>
 
 

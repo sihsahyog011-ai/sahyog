@@ -380,13 +380,13 @@ body > nav {
 
   flex-wrap: wrap;
 
-  max-width: 820px;
+  max-width: 920px;
 
   box-shadow: var(--shadow);
 }
 
 .search-field {
-  flex: 1 1 220px;
+  flex: 1 1 180px;
 
   display: flex;
 
@@ -396,8 +396,9 @@ body > nav {
 }
 
 .service-field,
-.location-field {
-  flex: 0 1 170px;
+.location-field,
+.price-field {
+  flex: 0 1 160px;
 }
 
 .search-field label {
@@ -433,6 +434,18 @@ body > nav {
   transition:
     border-color 0.15s ease,
     box-shadow 0.15s ease;
+}
+
+.search-field select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="none" stroke="%235d6872" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polyline points="6 9 12 15 18 9"></polyline></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 14px;
+  padding-right: 30px;
+  cursor: pointer;
 }
 
 .search-field input::placeholder {
@@ -526,7 +539,7 @@ body > nav {
 }
 
 
-/* ---------- Services ---------- */
+/* ---------- Services / Chips ---------- */
 
 .chip-row {
   display: flex;
@@ -1180,6 +1193,7 @@ footer {
 }
 
 .form-field input,
+.form-field select,
 .form-field textarea {
   width: 100%;
 
@@ -1202,7 +1216,20 @@ footer {
   resize: vertical;
 }
 
+.form-field select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="none" stroke="%235d6872" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polyline points="6 9 12 15 18 9"></polyline></svg>');
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 15px;
+  padding-right: 36px;
+  cursor: pointer;
+}
+
 .form-field input:focus,
+.form-field select:focus,
 .form-field textarea:focus {
   border-color: var(--primary);
 
@@ -1298,7 +1325,8 @@ footer {
   }
 
   .service-field,
-  .location-field {
+  .location-field,
+  .price-field {
     flex: 1 1 220px;
   }
 
