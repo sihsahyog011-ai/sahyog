@@ -4,16 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Sahyog — Trusted services for your home</title>
+  <title>Sahyog — Trusted Services for Your Home</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  >
 
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <!-- Header -->
+  <!-- Navigation -->
   <nav>
     <div class="header-inner">
 
@@ -31,7 +37,7 @@
           </svg>
         </div>
 
-        Sahyog
+        <span>Sahyog</span>
       </div>
 
       <div class="main-nav">
@@ -68,10 +74,9 @@
       </h1>
 
       <p class="sub">
-        Search plumbers, electricians, carpenters and more
-        from workers who've been checked and rated by your
-        neighbors. Find someone, see their details, and reach
-        out directly.
+        Find trusted plumbers, electricians, carpenters and
+        other skilled workers near you. Compare profiles,
+        check ratings and connect directly.
       </p>
 
 
@@ -79,9 +84,7 @@
       <div class="search-panel">
 
         <div class="search-field">
-          <label for="q">
-            What do you need?
-          </label>
+          <label for="q">What do you need?</label>
 
           <input
             type="text"
@@ -92,29 +95,17 @@
         </div>
 
 
-        <div
-          class="search-field"
-          style="flex:0 1 170px;"
-        >
-          <label for="tradeSelect">
-            Services
-          </label>
+        <div class="search-field service-field">
+          <label for="tradeSelect">Services</label>
 
           <select id="tradeSelect">
-            <option value="">
-              All works
-            </option>
+            <option value="">All works</option>
           </select>
         </div>
 
 
-        <div
-          class="search-field"
-          style="flex:0 1 170px;"
-        >
-          <label for="locInput">
-            Area
-          </label>
+        <div class="search-field location-field">
+          <label for="locInput">Area</label>
 
           <input
             type="text"
@@ -127,6 +118,7 @@
 
         <button
           class="btn btn-brass"
+          id="searchBtn"
           type="button"
           onclick="document.getElementById('browse').scrollIntoView({ behavior: 'smooth' })"
         >
@@ -136,7 +128,7 @@
       </div>
 
 
-      <!-- Stats -->
+      <!-- Statistics -->
       <div class="hero-stats">
 
         <div>
@@ -162,23 +154,17 @@
 
 
   <!-- Browse Workers -->
-  <section
-    class="section"
-    id="browse"
-  >
+  <section class="section" id="browse">
 
     <div class="wrap">
 
       <div class="section-head">
 
         <div>
-          <h2>
-            Browse by service:
-          </h2>
+          <h2>Browse by service</h2>
 
           <p>
-            Tap a trade to filter, or use the search above
-            for something specific.
+            Choose a service or search for a specific household need.
           </p>
         </div>
 
@@ -198,7 +184,6 @@
         class="loading-row"
       >
         <div class="spinner"></div>
-
         Fetching workers from the directory…
       </div>
 
@@ -210,14 +195,17 @@
       ></div>
 
 
-      <!-- No Results -->
+      <!-- Empty -->
       <div
         class="empty-state"
         id="emptyState"
         style="display:none;"
       >
-        No one matches that search yet.
-        Try a different trade or area.
+        <h3>No workers found</h3>
+
+        <p>
+          Try a different service, keyword or area.
+        </p>
       </div>
 
     </div>
@@ -227,9 +215,8 @@
 
   <!-- How It Works -->
   <section
-    class="section"
+    class="section how-section"
     id="how"
-    style="background:var(--paper-dim);"
   >
 
     <div class="wrap">
@@ -238,13 +225,10 @@
 
         <div>
 
-          <h2>
-            How it works
-          </h2>
+          <h2>How it works</h2>
 
           <p>
-            Three steps between a household problem and
-            someone standing at your door with the right tools.
+            Getting the right person for the job takes only a few steps.
           </p>
 
         </div>
@@ -256,17 +240,13 @@
 
         <div class="step">
 
-          <div class="num">
-            1
-          </div>
+          <div class="num">1</div>
 
-          <h4>
-            Search your trade
-          </h4>
+          <h4>Search your trade</h4>
 
           <p>
-            Filter by job type and neighborhood to see
-            who's available near you.
+            Search by service, problem or neighborhood to
+            find workers nearby.
           </p>
 
         </div>
@@ -274,17 +254,13 @@
 
         <div class="step">
 
-          <div class="num">
-            2
-          </div>
+          <div class="num">2</div>
 
-          <h4>
-            Check their profile
-          </h4>
+          <h4>Check their profile</h4>
 
           <p>
-            Ratings, years of experience, and a verified
-            badge for background-checked pros.
+            See experience, ratings, service area and
+            pricing before contacting them.
           </p>
 
         </div>
@@ -292,17 +268,13 @@
 
         <div class="step">
 
-          <div class="num">
-            3
-          </div>
+          <div class="num">3</div>
 
-          <h4>
-            Connect directly
-          </h4>
+          <h4>Connect directly</h4>
 
           <p>
-            Call, message on WhatsApp, or send a request —
-            you agree on price and timing together.
+            Call, message or send a service request and
+            discuss the job and timing.
           </p>
 
         </div>
@@ -314,7 +286,7 @@
   </section>
 
 
-  <!-- Join as Worker -->
+  <!-- Join -->
   <section
     class="section"
     id="join"
@@ -326,15 +298,18 @@
 
         <div>
 
+          <div class="join-label">
+            FOR SKILLED WORKERS
+          </div>
+
           <h3>
             Are you a plumber, electrician,
-            or other tradesperson?
+            carpenter or tradesperson?
           </h3>
 
           <p>
-            List your services on Sahyog and get found by
-            homeowners in your area looking for exactly
-            what you do.
+            List your services on Sahyog and connect with
+            households in your area looking for your skills.
           </p>
 
         </div>
@@ -372,67 +347,53 @@
         ×
       </button>
 
-      <h3>
-        List your services
-      </h3>
+
+      <h3>List your services</h3>
 
       <div class="modal-trade">
-        You'll show up in search as soon as you submit.
+        Add your details so people nearby can find you.
       </div>
 
 
       <form id="joinForm">
 
         <div class="form-field">
-
-          <label for="jName">
-            Your name
-          </label>
+          <label for="jName">Your name</label>
 
           <input
             type="text"
             id="jName"
             required
           >
-
         </div>
 
 
         <div class="form-field">
-
-          <label for="jTradeLabel">
-            Trade (e.g. Plumber, Electrician)
-          </label>
+          <label for="jTradeLabel">Trade</label>
 
           <input
             type="text"
             id="jTradeLabel"
+            placeholder="e.g. Plumber, Electrician"
             required
           >
-
         </div>
 
 
         <div class="form-field">
-
-          <label for="jLocation">
-            Area you serve
-          </label>
+          <label for="jLocation">Area you serve</label>
 
           <input
             type="text"
             id="jLocation"
+            placeholder="e.g. Salt Lake"
             required
           >
-
         </div>
 
 
         <div class="form-field">
-
-          <label for="jRate">
-            Rate per visit (₹)
-          </label>
+          <label for="jRate">Rate per visit (₹)</label>
 
           <input
             type="number"
@@ -440,15 +401,11 @@
             min="0"
             required
           >
-
         </div>
 
 
         <div class="form-field">
-
-          <label for="jYears">
-            Years of experience
-          </label>
+          <label for="jYears">Years of experience</label>
 
           <input
             type="number"
@@ -456,15 +413,11 @@
             min="0"
             value="0"
           >
-
         </div>
 
 
         <div class="form-field">
-
-          <label for="jPhone">
-            Phone (with country code)
-          </label>
+          <label for="jPhone">Phone</label>
 
           <input
             type="tel"
@@ -472,29 +425,23 @@
             placeholder="+91..."
             required
           >
-
         </div>
 
 
         <div class="form-field">
-
-          <label for="jBio">
-            Short description
-          </label>
+          <label for="jBio">Short description</label>
 
           <textarea
             id="jBio"
             rows="3"
-            placeholder="What you do and what makes you reliable."
+            placeholder="Tell people briefly about your work."
           ></textarea>
-
         </div>
 
 
         <button
           type="submit"
-          class="btn btn-brass"
-          style="width:100%; justify-content:center;"
+          class="btn btn-brass form-submit"
         >
           Submit listing
         </button>
@@ -504,7 +451,7 @@
           class="confirm-note"
           id="joinConfirm"
         >
-          You're listed. Homeowners can now find and contact you.
+          Your listing has been saved.
         </div>
 
       </form>
@@ -514,7 +461,7 @@
   </div>
 
 
-  <!-- Contact / Request Modal -->
+  <!-- Worker Contact Modal -->
   <div
     class="modal-overlay"
     id="modalOverlay"
@@ -547,7 +494,6 @@
           id="callLink"
           href="#"
         >
-
           <svg
             width="15"
             height="15"
@@ -557,13 +503,11 @@
             stroke-width="2"
             stroke-linecap="round"
             stroke-linejoin="round"
-            aria-hidden="true"
           >
-            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 0 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
           </svg>
 
           Call
-
         </a>
 
 
@@ -574,7 +518,6 @@
           target="_blank"
           rel="noopener noreferrer"
         >
-
           <svg
             width="15"
             height="15"
@@ -584,13 +527,11 @@
             stroke-width="2"
             stroke-linecap="round"
             stroke-linejoin="round"
-            aria-hidden="true"
           >
             <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
           </svg>
 
           WhatsApp
-
         </a>
 
       </div>
@@ -628,7 +569,7 @@
             id="reqMsg"
             rows="3"
             required
-            placeholder="e.g. Bathroom tap has been leaking since yesterday, need it looked at this week."
+            placeholder="Describe the work you need."
           ></textarea>
 
         </div>
@@ -636,8 +577,7 @@
 
         <button
           type="submit"
-          class="btn btn-brass"
-          style="width:100%; justify-content:center;"
+          class="btn btn-brass form-submit"
         >
           Send request
         </button>
@@ -671,7 +611,6 @@
   </footer>
 
 
-  <!-- JavaScript -->
   <script src="script.js"></script>
 
 </body>
