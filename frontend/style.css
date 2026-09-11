@@ -23,7 +23,7 @@
   --radius-s: 7px;
   --radius-m: 14px;
 
-  --header-height: 84px;
+  --header-height: 65px;
 }
 
 
@@ -95,7 +95,7 @@ body > nav {
   top: 0;
   z-index: 40;
   width: 100%;
-  min-height: var(--header-height);
+  min-height: 60px;
 
   background: rgba(255, 255, 255, 0.97);
   backdrop-filter: blur(12px);
@@ -167,7 +167,7 @@ body > nav {
 
 .main-nav a {
   text-decoration: none;
-
+  
   color: var(--text-soft);
 
   padding: 6px 0;
@@ -265,9 +265,11 @@ body > nav {
 .hero {
   position: relative;
 
+  height: 100vh;
+ 
   overflow: hidden;
 
-  padding: 76px 0 60px;
+  padding: 20px 0 30px;
 
   background:
     radial-gradient(
@@ -364,8 +366,7 @@ body > nav {
 /* ---------- Search ---------- */
 
 .search-panel {
-  margin-top: 32px;
-
+  margin-top: 25px;
   background: rgba(255, 255, 255, 0.97);
 
   border: 1px solid var(--border);
@@ -512,7 +513,7 @@ body > nav {
 .section-head h2 {
   font-size: 29px;
 
-  font-weight: 700;
+  font-weight: bold;
 }
 
 .section-head p {
