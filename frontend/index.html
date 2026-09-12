@@ -4,10 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
   <title>Sahyog — Trusted Services for Your Home</title>
-  <title>SAHYOG — Trusted services for your home</title>
-
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,6 +28,7 @@
           <svg
             viewBox="0 0 24 24"
             fill="none"
+            stroke="currentColor"
             stroke-width="2"
             stroke-linecap="round"
             stroke-linejoin="round"
@@ -40,22 +38,28 @@
           </svg>
         </div>
 
-
         <span>Sahyog</span>
-
-
       </div>
 
       <div class="main-nav">
-        <a href="#how">WORK FLOW</a>
-        <a href="#join">WORKERS SIGN UP/SIGN IN</a>
+        <a href="#browse">Find a pro</a>
+        <a href="#how">How it works</a>
+        <a href="#join">For workers</a>
       </div>
 
       <div class="header-cta">
+        <!-- Language Switcher -->
+        <select id="langSwitch" class="lang-select" aria-label="Select Language">
+          <option value="en">English</option>
+          <option value="bn">বাংলা</option>
+          <option value="hi">हिन्दी</option>
+        </select>
+
         <button
           class="btn btn-outline"
           type="button"
           onclick="document.getElementById('browse').scrollIntoView({ behavior: 'smooth' })"
+          data-i18n="browseWorkers"
         >
           Browse workers
         </button>
@@ -70,15 +74,15 @@
 
     <div class="wrap hero-inner">
 
-      <div class="hero-eyebrow">
+      <div class="hero-eyebrow" data-i18n="heroEyebrow">
         HOUSEHOLD SERVICES, VERIFIED
       </div>
 
-      <h1>
+      <h1 data-i18n="heroHeading">
         Every service your home needs, one call away.
       </h1>
 
-      <p class="sub">
+      <p class="sub" data-i18n="heroSub">
         Find trusted plumbers, electricians, carpenters and
         other skilled workers near you. Compare profiles,
         check ratings and connect directly.
@@ -89,7 +93,7 @@
       <div class="search-panel">
 
         <div class="search-field">
-          <label for="q">What do you need?</label>
+          <label for="q" data-i18n="labelNeed">What do you need?</label>
 
           <input
             type="text"
@@ -101,7 +105,7 @@
 
 
         <div class="search-field service-field">
-          <label for="tradeSelect">Services</label>
+          <label for="tradeSelect" data-i18n="labelServices">Services</label>
 
           <select id="tradeSelect">
             <option value="">All works</option>
@@ -110,7 +114,7 @@
 
 
         <div class="search-field location-field">
-          <label for="locInput">Area</label>
+          <label for="locInput" data-i18n="labelArea">Area</label>
 
           <input
             type="text"
@@ -120,12 +124,22 @@
           >
         </div>
 
+        <!-- Price Range Filter -->
+        <div class="search-field price-field">
+          <label for="priceSelect" data-i18n="labelBudget">Max Budget</label>
+          <select id="priceSelect">
+            <option value="all">Any Price</option>
+            <option value="under400">Under ₹400</option>
+            <option value="400-600">₹400 - ₹600</option>
+            <option value="above600">Above ₹600</option>
+          </select>
+        </div>
 
         <button
           class="btn btn-brass"
           id="searchBtn"
           type="button"
-          onclick="document.getElementById('browse').scrollIntoView({ behavior: 'smooth' })"
+          data-i18n="btnSearch"
         >
           Search
         </button>
@@ -138,17 +152,17 @@
 
         <div>
           <strong id="statWorkers">—</strong>
-          active workers
+          <span data-i18n="statWorkers">active workers</span>
         </div>
 
         <div>
           <strong id="statTrades">—</strong>
-          trades covered
+          <span data-i18n="statTrades">trades covered</span>
         </div>
 
         <div>
           <strong>4.8★</strong>
-          average rating
+          <span data-i18n="statRating">average rating</span>
         </div>
 
       </div>
@@ -158,7 +172,7 @@
   </section>
 
 
-  <!-- Browse Workers -->
+  <!-- Browse Workers / Find a Pro -->
   <section class="section" id="browse">
 
     <div class="wrap">
@@ -166,7 +180,7 @@
       <div class="section-head">
 
         <div>
-          <h2>BROWSE WORKERS :</h2>
+          <h2>Browse by service</h2>
 
           <p>
             Choose a service or search for a specific household need.
@@ -200,17 +214,14 @@
       ></div>
 
 
-      <!-- Empty -->
+      <!-- Empty State -->
       <div
         class="empty-state"
         id="emptyState"
         style="display:none;"
       >
-        <h3>No workers found</h3>
-
-        <p>
-          Try a different service, keyword or area.
-        </p>
+        <h3 data-i18n="noWorkersFound">No workers found</h3>
+        <p data-i18n="noWorkersSub">Try a different service, budget, keyword or area.</p>
       </div>
 
     </div>
@@ -229,13 +240,8 @@
       <div class="section-head">
 
         <div>
-
-          <h2>How it works</h2>
-
-          <p>
-            Getting the right person for the job takes only a few steps.
-          </p>
-
+          <h2 data-i18n="howHead">How it works</h2>
+          <p data-i18n="howSub">Getting the right person for the job takes only a few steps.</p>
         </div>
 
       </div>
@@ -244,44 +250,21 @@
       <div class="steps">
 
         <div class="step">
-
           <div class="num">1</div>
-
-          <h4>Search your trade</h4>
-
-          <p>
-            Search by service, problem or neighborhood to
-            find workers nearby.
-          </p>
-
+          <h4 data-i18n="step1Title">Search your trade</h4>
+          <p data-i18n="step1Desc">Search by service, problem or neighborhood to find workers nearby.</p>
         </div>
 
-
         <div class="step">
-
           <div class="num">2</div>
-
-          <h4>Check their profile</h4>
-
-          <p>
-            See experience, ratings, service area and
-            pricing before contacting them.
-          </p>
-
+          <h4 data-i18n="step2Title">Check their profile</h4>
+          <p data-i18n="step2Desc">See experience, ratings, service area and pricing before contacting them.</p>
         </div>
 
-
         <div class="step">
-
           <div class="num">3</div>
-
-          <h4>Connect directly</h4>
-
-          <p>
-            Call, message or send a service request and
-            discuss the job and timing.
-          </p>
-
+          <h4 data-i18n="step3Title">Connect directly</h4>
+          <p data-i18n="step3Desc">Call, message or send a service request and discuss the job and timing.</p>
         </div>
 
       </div>
@@ -303,16 +286,16 @@
 
         <div>
 
-          <div class="join-label">
+          <div class="join-label" data-i18n="joinLabel">
             FOR SKILLED WORKERS
           </div>
 
-          <h3>
+          <h3 data-i18n="joinHeading">
             Are you a plumber, electrician,
             carpenter or tradesperson?
           </h3>
 
-          <p>
+          <p data-i18n="joinSub">
             List your services on Sahyog and connect with
             households in your area looking for your skills.
           </p>
@@ -324,6 +307,7 @@
           class="btn btn-brass"
           type="button"
           onclick="openJoinModal()"
+          data-i18n="joinBtn"
         >
           Join as a worker
         </button>
@@ -352,9 +336,9 @@
       </button>
 
 
-      <h3>List your services</h3>
+      <h3 data-i18n="joinModalTitle">List your services</h3>
 
-      <div class="modal-trade">
+      <div class="modal-trade" data-i18n="joinModalSub">
         Add your details so people nearby can find you.
       </div>
 
@@ -363,10 +347,10 @@
 
         <div class="form-field">
           <label for="jName">Your name</label>
-
           <input
             type="text"
             id="jName"
+            placeholder="e.g. Ramesh Chandra"
             required
           >
         </div>
@@ -374,35 +358,27 @@
 
         <div class="form-field">
           <label for="jTradeLabel">Trade</label>
-
-          <input
-            type="text"
-            id="jTradeLabel"
-            placeholder="e.g. Plumber, Electrician"
-            required
-          >
+          <select id="jTradeLabel" required>
+            <option value="" disabled selected>Select trade</option>
+          </select>
         </div>
 
 
         <div class="form-field">
           <label for="jLocation">Area you serve</label>
-
-          <input
-            type="text"
-            id="jLocation"
-            placeholder="e.g. Salt Lake"
-            required
-          >
+          <select id="jLocation" required>
+            <option value="" disabled selected>Select area</option>
+          </select>
         </div>
 
 
         <div class="form-field">
           <label for="jRate">Rate per visit (₹)</label>
-
           <input
             type="number"
             id="jRate"
             min="0"
+            placeholder="e.g. 450"
             required
           >
         </div>
@@ -410,19 +386,17 @@
 
         <div class="form-field">
           <label for="jYears">Years of experience</label>
-
           <input
             type="number"
             id="jYears"
             min="0"
-            value="0"
+            placeholder="e.g. 5"
           >
         </div>
 
 
         <div class="form-field">
           <label for="jPhone">Phone</label>
-
           <input
             type="tel"
             id="jPhone"
@@ -434,7 +408,6 @@
 
         <div class="form-field">
           <label for="jBio">Short description</label>
-
           <textarea
             id="jBio"
             rows="3"
@@ -557,6 +530,7 @@
           <input
             type="text"
             id="reqName"
+            placeholder="Your name"
             required
           >
 
