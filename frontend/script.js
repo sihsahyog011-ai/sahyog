@@ -380,6 +380,37 @@ const translations = {
 
 };
 
+const workerNameTranslations = {
+  bn: {
+    "Arun Kumar": "অরুণ কুমার",
+    "Imran Ali": "ইমরান আলী",
+    "Sourav Das": "সৌরভ দাস",
+    "Rakesh Mondal": "রাকেশ মণ্ডল",
+    "Nandita Sen": "নন্দিতা সেন",
+    "Sanjay Barman": "সঞ্জয় বর্মন",
+    "Satyam Haz": "সত্যম হাজ",
+    "Ramesh Chandra": "রমেশ চন্দ্র",
+    "Mita Roy": "মিতা রায়",
+    "Priya Dutta": "প্রিয়া দত্ত",
+    "Debjit Ghosh": "দেবজিৎ ঘোষ",
+    "NIL": "নিল"
+  },
+  hi: {
+    "Arun Kumar": "अरुण कुमार",
+    "Imran Ali": "इमरान अली",
+    "Sourav Das": "सौरभ दास",
+    "Rakesh Mondal": "राकेश मंडल",
+    "Nandita Sen": "नंदिता सेन",
+    "Sanjay Barman": "संजय बर्मन",
+    "Satyam Haz": "सत्यम हाज़",
+    "Ramesh Chandra": "रमेश चंद्र",
+    "Mita Roy": "मिता राय",
+    "Priya Dutta": "प्रिया दत्ता",
+    "Debjit Ghosh": "देबजीत घोष",
+    "NIL": "निल"
+  }
+};
+
 
 // --------------------------------------------------
 // DOM ELEMENTS
@@ -705,6 +736,18 @@ function updateActiveChip() {
 // RENDER WORKERS
 // --------------------------------------------------
 
+function translateWorkerName(worker) {
+
+  const translatedName =
+    workerNameTranslations[currentLanguage]?.[worker.name] || worker.name;
+
+  return {
+    ...worker,
+    name: translatedName
+  };
+}
+
+
 function renderWorkers(list) {
 
   const dict = translations[currentLanguage] || translations.en;
@@ -712,7 +755,7 @@ function renderWorkers(list) {
   workerGrid.innerHTML = "";
 
 
-  list.forEach(worker => {
+  list.map(translateWorkerName).forEach(worker => {
 
     const card =
       document.createElement("article");
@@ -1025,9 +1068,11 @@ function openWorkerModal(worker) {
 
   selectedWorker = worker;
 
+  const localizedWorker = translateWorkerName(worker);
+
 
   document.getElementById("modalName")
-    .textContent = worker.name;
+    .textContent = localizedWorker.name;
 
 
   document.getElementById("modalTrade")
