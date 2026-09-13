@@ -11,6 +11,17 @@
         "bio": "Leaks, taps, bathroom fittings and small plumbing repairs."
     },
     {
+        "id": 6,
+        "name": "Imran Ali",
+        "trade": "Appliance Repair",
+        "location": "Park Circus",
+        "rate": 400,
+        "years": 6,
+        "rating": 4.6,
+        "phone": "+919876543215",
+        "bio": "Repair and maintenance for common household appliances."
+    },
+    {
         "id": 2,
         "name": "Sourav Das",
         "trade": "Electrician",
@@ -22,6 +33,50 @@
         "bio": "House wiring, switches, fans, lighting and electrical repairs."
     },
     {
+        "id": 4,
+        "name": "Rakesh Mondal",
+        "trade": "Carpenter",
+        "location": "Dum Dum",
+        "rate": 600,
+        "years": 10,
+        "rating": 4.9,
+        "phone": "+919876543213",
+        "bio": "Furniture repair, shelves, doors and custom woodwork."
+    },
+    {
+        "id": 5,
+        "name": "Nandita Sen",
+        "trade": "Painter",
+        "location": "Jadavpur",
+        "rate": 500,
+        "years": 7,
+        "rating": 4.8,
+        "phone": "+919876543214",
+        "bio": "Interior painting, touch-ups and small wall repair work."
+    },
+    {
+        "id": 9,
+        "name": "Sanjay Barman",
+        "trade": "Sanitization",
+        "location": "Salt Lake",
+        "rate": 450,
+        "years": 5,
+        "rating": 4.9,
+        "phone": "+919876543218",
+        "bio": "Full home sanitization, kitchen sterilization & viral disinfectant spray."
+    },
+    {
+        "id": 2,
+        "name": "Satyam Haz",
+        "trade": "Cleaner",
+        "location": "Howrah",
+        "rate": 469,
+        "years": 19,
+        "rating": 4.8,
+        "phone": "+919876543211",
+        "bio": "House Cleaning, toilet cleaning, kitchen."
+    },
+    {
         "id": 3,
         "name": "Ramesh Chandra",
         "trade": "Plumber",
@@ -31,6 +86,39 @@
         "rating": 5,
         "phone": "+918597470350",
         "bio": "I am very skilled plumber workerd on over 1500 projects"
+    },
+    {
+        "id": 3,
+        "name": "Mita Roy",
+        "trade": "Cleaner",
+        "location": "Ballygunge",
+        "rate": 350,
+        "years": 5,
+        "rating": 4.7,
+        "phone": "+919876543212",
+        "bio": "Regular home cleaning, kitchen cleaning and move-in cleaning."
+    },
+    {
+        "id": 8,
+        "name": "Priya Dutta",
+        "trade": "Locksmith",
+        "location": "Howrah",
+        "rate": 300,
+        "years": 4,
+        "rating": 4.7,
+        "phone": "+919876543217",
+        "bio": "Lock replacement, repairs and emergency home lock service."
+    },
+    {
+        "id": 7,
+        "name": "Debjit Ghosh",
+        "trade": "Pest Control",
+        "location": "Behala",
+        "rate": 700,
+        "years": 9,
+        "rating": 4.8,
+        "phone": "+919876543216",
+        "bio": "Home pest checks and treatment for common household pests."
     },
     {
         "id": 4,

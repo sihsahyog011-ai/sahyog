@@ -1,106 +1,3 @@
-const defaultWorkers = [
-  {
-    id: 1,
-    name: "Arun Kumar",
-    trade: "Plumber",
-    location: "Salt Lake",
-    rate: 450,
-    years: 8,
-    rating: 4.9,
-    phone: "+919876543210",
-    bio: "Leaks, taps, bathroom fittings and small plumbing repairs."
-  },
-  {
-    id: 2,
-    name: "Sourav Das",
-    trade: "Electrician",
-    location: "New Town",
-    rate: 550,
-    years: 6,
-    rating: 4.8,
-    phone: "+919876543211",
-    bio: "House wiring, switches, fans, lighting and electrical repairs."
-  },
-  {
-    id: 3,
-    name: "Mita Roy",
-    trade: "Cleaner",
-    location: "Ballygunge",
-    rate: 350,
-    years: 5,
-    rating: 4.7,
-    phone: "+919876543212",
-    bio: "Regular home cleaning, kitchen cleaning and move-in cleaning."
-  },
-  {
-    id: 4,
-    name: "Rakesh Mondal",
-    trade: "Carpenter",
-    location: "Dum Dum",
-    rate: 600,
-    years: 10,
-    rating: 4.9,
-    phone: "+919876543213",
-    bio: "Furniture repair, shelves, doors and custom woodwork."
-  },
-  {
-    id: 5,
-    name: "Nandita Sen",
-    trade: "Painter",
-    location: "Jadavpur",
-    rate: 500,
-    years: 7,
-    rating: 4.8,
-    phone: "+919876543214",
-    bio: "Interior painting, touch-ups and small wall repair work."
-  },
-  {
-    id: 6,
-    name: "Imran Ali",
-    trade: "Appliance Repair",
-    location: "Park Circus",
-    rate: 400,
-    years: 6,
-    rating: 4.6,
-    phone: "+919876543215",
-    bio: "Repair and maintenance for common household appliances."
-  },
-  {
-    id: 7,
-    name: "Debjit Ghosh",
-    trade: "Pest Control",
-    location: "Behala",
-    rate: 700,
-    years: 9,
-    rating: 4.8,
-    phone: "+919876543216",
-    bio: "Home pest checks and treatment for common household pests."
-  },
-  {
-    id: 8,
-    name: "Priya Dutta",
-    trade: "Locksmith",
-    location: "Howrah",
-    rate: 300,
-    years: 4,
-    rating: 4.7,
-    phone: "+919876543217",
-    bio: "Lock replacement, repairs and emergency home lock service."
-  },
-  {
-    id: 9,
-    name: "Sanjay Barman",
-    trade: "Sanitization",
-    location: "Salt Lake",
-    rate: 450,
-    years: 5,
-    rating: 4.9,
-    phone: "+919876543218",
-    bio: "Full home sanitization, kitchen sterilization & viral disinfectant spray."
-  }
-];
-
-
 const categories = [
   "Plumber",
   "Electrician",
@@ -114,9 +11,11 @@ const categories = [
 ];
 
 
-let workers = [...defaultWorkers];
+let workers = [];
 let selectedTrade = "";
 let selectedWorker = null;
+let currentLanguage = "en";
+let currentFiltered = [];
 
 
 // --------------------------------------------------
@@ -126,10 +25,53 @@ let selectedWorker = null;
 const translations = {
 
   en: {
+    brandName: "Sahyog",
+    pageTitle: "Sahyog — Trusted Services for Your Home",
     navFind: "Find a pro",
     navHow: "How it works",
     navWorkers: "For workers",
     browseWorkers: "Browse workers",
+    browseByServiceTitle: "Browse by service",
+    browseByServiceSub: "Choose a service or search for a specific household need.",
+    allWorks: "All works",
+    all: "All",
+    verified: "Verified",
+    yearsExperience: "yrs experience",
+    visit: "/visit",
+    viewConnect: "View & connect",
+    call: "Call",
+    whatsapp: "WhatsApp",
+    orSendRequest: "or send a request",
+    sendRequest: "Send request",
+    requestSaved: "Request saved.",
+    requestSavedFor: "{worker} will receive your request.",
+    yourName: "Your name",
+    whatNeedDone: "What do you need done?",
+    ratePerVisit: "Rate per visit (₹)",
+    yearsExperienceLabel: "Years of experience",
+    phoneLabel: "Phone",
+    shortDescription: "Short description",
+    selectTrade: "Select trade",
+    selectArea: "Select area",
+    searchPlaceholder: "e.g. leaking tap, rewiring, painting",
+    areaPlaceholder: "Neighborhood",
+    joinNamePlaceholder: "e.g. Ramesh Chandra",
+    joinRatePlaceholder: "e.g. 450",
+    joinYearsPlaceholder: "e.g. 5",
+    joinPhonePlaceholder: "+91...",
+    joinBioPlaceholder: "Tell people briefly about your work.",
+    reqNamePlaceholder: "Your name",
+    reqMsgPlaceholder: "Describe the work you need.",
+    submitListing: "Submit listing",
+    joinSaving: "Saving...",
+    joinSavedSuccess: "Your listing has been saved successfully.",
+    requestNameRequired: "Please enter your name.",
+    priceAny: "Any Price",
+    priceUnder400: "Under ₹400",
+    price400600: "₹400 - ₹600",
+    priceAbove600: "Above ₹600",
+    footerText: "© 2026 SAHYOG. A cooperative platform for household services.",
+    loadingWorkers: "Fetching workers from the directory…",
 
     heroEyebrow: "HOUSEHOLD SERVICES, VERIFIED",
 
@@ -197,10 +139,53 @@ const translations = {
 
 
   bn: {
+    brandName: "সহযোগ",
+    pageTitle: "সহযোগ — আপনার ঘরের জন্য বিশ্বস্ত সেবা কেন্দ্র",
     navFind: "কারিগর খুঁজুন",
     navHow: "কীভাবে কাজ করে",
     navWorkers: "কর্মীদের জন্য",
     browseWorkers: "সব কর্মী দেখুন",
+    browseByServiceTitle: "সেবার মাধ্যমে ব্রাউজ করুন",
+    browseByServiceSub: "কাজের ধরন বা নির্দিষ্ট প্রয়োজন অনুযায়ী খুঁজুন।",
+    allWorks: "সব কাজ",
+    all: "সব",
+    verified: "যাচাই করেছেন",
+    yearsExperience: "বছর অভিজ্ঞতা",
+    visit: "/ভিজিট",
+    viewConnect: "দেখুন ও যোগাযোগ করুন",
+    call: "কল করুন",
+    whatsapp: "হোয়াটসঅ্যাপ",
+    orSendRequest: "অথবা অনুরোধ পাঠান",
+    sendRequest: "অনুরোধ পাঠান",
+    requestSaved: "অনুরোধ সংরক্ষিত।",
+    requestSavedFor: "{worker} আপনার অনুরোধ পাবেন।",
+    yourName: "আপনার নাম",
+    whatNeedDone: "আপনি কী কাজ চান?",
+    ratePerVisit: "ভিজিটের মূল্য (₹)",
+    yearsExperienceLabel: "অভিজ্ঞতার বছর",
+    phoneLabel: "ফোন",
+    shortDescription: "সংক্ষিপ্ত বর্ণনা",
+    selectTrade: "কাজের ধরন বেছে নিন",
+    selectArea: "এলাকা বেছে নিন",
+    searchPlaceholder: "যেমন: লিক হচ্ছে ট্যাপ, রিওয়ারিং, পেইন্টিং",
+    areaPlaceholder: "এলাকা",
+    joinNamePlaceholder: "যেমন: রমেশ চন্দ্র",
+    joinRatePlaceholder: "যেমন: 450",
+    joinYearsPlaceholder: "যেমন: 5",
+    joinPhonePlaceholder: "+91...",
+    joinBioPlaceholder: "সংক্ষেপে আপনার কাজ সম্পর্কে লিখুন।",
+    reqNamePlaceholder: "আপনার নাম",
+    reqMsgPlaceholder: "আপনি কী কাজ করতে চান তা লিখুন।",
+    submitListing: "তালিকাভুক্ত করুন",
+    joinSaving: "সংরক্ষণ করা হচ্ছে...",
+    joinSavedSuccess: "আপনার তালিকা সফলভাবে সংরক্ষিত হয়েছে।",
+    requestNameRequired: "অনুগ্রহ করে আপনার নাম লিখুন।",
+    priceAny: "যেকোনো মূল্য",
+    priceUnder400: "₹400 এর কম",
+    price400600: "₹400 - ₹600",
+    priceAbove600: "₹600 এর বেশি",
+    footerText: "© 2026 SAHYOG. ঘরোয়া সেবা জন্য সহযোগিতামূলক প্ল্যাটফর্ম।",
+    loadingWorkers: "কর্মী তালিকা আনা হচ্ছে…",
 
     heroEyebrow:
       "গৃহস্থালি পরিষেবা, বিশ্বস্ত ও পরীক্ষিত",
@@ -209,7 +194,7 @@ const translations = {
       "ঘরের যেকোনো কাজের জন্য সেরা কারিগর, এক কলেই হাজির।",
 
     heroSub:
-      "আপনার এলাকার নির্ভরযোগ্য প্লাম্বার, ইলেকট্রিশিয়ান, মিস্ত্রিদের খুঁজুন। রেটিং যাচাই করুন এবং সরাসরি যোগাযোগ করুন।",
+      "আপনার এলাকার নির্ভরযোগ্য পাইপলাইন মিস্ত্রি, বৈদ্যুতিক কর্মী, মিস্ত্রিদের খুঁজুন। রেটিং যাচাই করুন এবং সরাসরি যোগাযোগ করুন।",
 
     labelNeed: "আপনার কী সেবা দরকার?",
     labelServices: "কাজের ধরন",
@@ -270,10 +255,53 @@ const translations = {
 
 
   hi: {
+    brandName: "साह्योग",
+    pageTitle: "साह्योग — आपके घर के लिए भरोसेमंद सेवाएं",
     navFind: "कारीगर खोजें",
     navHow: "यह कैसे काम करता है",
     navWorkers: "कारीगरों के लिए",
     browseWorkers: "सभी कारीगर देखें",
+    browseByServiceTitle: "सेवा के अनुसार देखें",
+    browseByServiceSub: "सेवा प्रकार या किसी विशेष जरूरत के आधार पर खोजें।",
+    allWorks: "सभी काम",
+    all: "सब",
+    verified: "सत्यापित",
+    yearsExperience: "वर्ष अनुभव",
+    visit: "/भेंट",
+    viewConnect: "देखें और संपर्क करें",
+    call: "कॉल",
+    whatsapp: "व्हाट्सऐप",
+    orSendRequest: "या अनुरोध भेजें",
+    sendRequest: "अनुरोध भेजें",
+    requestSaved: "अनुरोध सहेजा गया।",
+    requestSavedFor: "{worker} को आपका अनुरोध मिल जाएगा।",
+    yourName: "आपका नाम",
+    whatNeedDone: "आपको क्या काम करवाना है?",
+    ratePerVisit: "प्रति विजिट शुल्क (₹)",
+    yearsExperienceLabel: "अनुभव के वर्ष",
+    phoneLabel: "फोन",
+    shortDescription: "संक्षिप्त विवरण",
+    selectTrade: "सेवा चुनें",
+    selectArea: "इलाका चुनें",
+    searchPlaceholder: "जैसे: टूटता हुआ नल, वायरिंग, पेंटिंग",
+    areaPlaceholder: "इलाका",
+    joinNamePlaceholder: "जैसे: रमेश चंद्र",
+    joinRatePlaceholder: "जैसे: 450",
+    joinYearsPlaceholder: "जैसे: 5",
+    joinPhonePlaceholder: "+91...",
+    joinBioPlaceholder: "संक्षेप में अपनी सेवा के बारे में बताएं।",
+    reqNamePlaceholder: "आपका नाम",
+    reqMsgPlaceholder: "आपको क्या काम चाहिए, लिखें।",
+    submitListing: "लिस्टिंग जमा करें",
+    joinSaving: "सहेजा जा रहा है...",
+    joinSavedSuccess: "आपकी लिस्टिंग सफलतापूर्वक सहेज ली गई।",
+    requestNameRequired: "कृपया अपना नाम लिखें।",
+    priceAny: "कोई भी कीमत",
+    priceUnder400: "₹400 से कम",
+    price400600: "₹400 - ₹600",
+    priceAbove600: "₹600 से अधिक",
+    footerText: "© 2026 SAHYOG. घरेलू सेवाओं के लिए सहयोगात्मक प्लेटफ़ॉर्म।",
+    loadingWorkers: "कारीगरों की सूची लोड हो रही है…",
 
     heroEyebrow:
       "घरेलू सेवाएं, सत्यापित एवं विश्वसनीय",
@@ -396,13 +424,16 @@ async function loadWorkersFromPHP() {
     }
 
     /*
-      Keep default workers and add workers
-      saved through PHP.
+      Prefer the PHP-backed data file as the
+      single source of truth for the current
+      worker directory.
     */
 
-    workers = [...defaultWorkers, ...data];
+    workers = Array.isArray(data) && data.length > 0
+      ? data
+      : [...defaultWorkers];
 
-    console.log("Workers loaded from PHP:", data);
+    console.log("Workers loaded from PHP:", workers);
 
   } catch (error) {
 
@@ -446,6 +477,15 @@ function getInitials(name) {
     .map(part => part.charAt(0))
     .join("")
     .toUpperCase();
+}
+
+
+function normalizeText(value) {
+
+  return String(value ?? "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]/g, "");
+
 }
 
 
@@ -667,6 +707,8 @@ function updateActiveChip() {
 
 function renderWorkers(list) {
 
+  const dict = translations[currentLanguage] || translations.en;
+
   workerGrid.innerHTML = "";
 
 
@@ -712,7 +754,7 @@ function renderWorkers(list) {
 
               </svg>
 
-              Verified
+              ${escapeHtml(dict.verified || "Verified")}
 
             </span>
 
@@ -738,7 +780,7 @@ function renderWorkers(list) {
         </span>
 
         <span>
-          ${Number(worker.years || 0)} yrs experience
+          ${Number(worker.years || 0)} ${escapeHtml(dict.yearsExperience || "yrs experience")}
         </span>
 
       </div>
@@ -753,7 +795,7 @@ function renderWorkers(list) {
 
         <div class="rate">
           ₹${Number(worker.rate || 0)}
-          <span>/visit</span>
+          <span>${escapeHtml(dict.visit || "/visit")}</span>
         </div>
 
         <button
@@ -761,7 +803,7 @@ function renderWorkers(list) {
           type="button"
           data-worker-id="${worker.id}"
         >
-          View & connect
+          ${escapeHtml(dict.viewConnect || "View & connect")}
         </button>
 
       </div>
@@ -808,13 +850,15 @@ function renderWorkers(list) {
 function filterWorkers() {
 
   const query =
-    qInput.value.trim().toLowerCase();
+    qInput ? normalizeText(qInput.value) : "";
 
   const location =
-    locInput.value.trim().toLowerCase();
+    locInput ? normalizeText(locInput.value) : "";
 
   const trade =
-    tradeSelect.value || selectedTrade;
+    tradeSelect
+      ? normalizeText(tradeSelect.value || selectedTrade)
+      : normalizeText(selectedTrade);
 
   const priceRange =
     priceSelect
@@ -826,16 +870,16 @@ function filterWorkers() {
     workers.filter(worker => {
 
       const workerName =
-        String(worker.name || "").toLowerCase();
+        normalizeText(worker.name || "");
 
       const workerTrade =
-        String(worker.trade || "").toLowerCase();
+        normalizeText(worker.trade || "");
 
       const workerBio =
-        String(worker.bio || "").toLowerCase();
+        normalizeText(worker.bio || "");
 
       const workerLocation =
-        String(worker.location || "").toLowerCase();
+        normalizeText(worker.location || "");
 
 
       // SEARCH
@@ -851,7 +895,7 @@ function filterWorkers() {
 
       const matchesTrade =
         !trade ||
-        workerTrade === trade.toLowerCase();
+        workerTrade === trade;
 
 
       // LOCATION
@@ -899,6 +943,8 @@ function filterWorkers() {
     });
 
 
+  currentFiltered = filtered;
+
   renderWorkers(filtered);
 
 
@@ -916,12 +962,16 @@ function filterWorkers() {
 
 function updateStats() {
 
-  document.getElementById("statWorkers")
-    .textContent = workers.length;
+  const statWorkers = document.getElementById("statWorkers");
+  const statTrades = document.getElementById("statTrades");
 
+  if (statWorkers) {
+    statWorkers.textContent = workers.length;
+  }
 
-  document.getElementById("statTrades")
-    .textContent = getTrades().length;
+  if (statTrades) {
+    statTrades.textContent = getTrades().length;
+  }
 
 }
 
@@ -1203,6 +1253,8 @@ async function saveRequest(request) {
 
 function applyLanguage(lang) {
 
+  currentLanguage = lang;
+
   const dict =
     translations[lang] || translations.en;
 
@@ -1223,6 +1275,51 @@ function applyLanguage(lang) {
       }
 
     });
+
+
+  const brand = document.querySelector(".logo span");
+  if (brand && dict.brandName) {
+    brand.textContent = dict.brandName;
+  }
+
+  if (dict.pageTitle) {
+    document.title = dict.pageTitle;
+  }
+
+
+  document
+    .querySelectorAll("[data-i18n-placeholder]")
+    .forEach(element => {
+
+      const key =
+        element.getAttribute("data-i18n-placeholder");
+
+      if (dict[key]) {
+
+        element.placeholder =
+          dict[key];
+
+      }
+
+    });
+
+
+  const allOption =
+    tradeSelect &&
+    tradeSelect.querySelector('option[value=""]');
+
+  if (allOption) {
+    allOption.textContent =
+      dict.allWorks || "All works";
+  }
+
+
+  if (currentFiltered.length > 0) {
+    renderWorkers(currentFiltered);
+
+  } else {
+    renderWorkers(workers);
+  }
 
 }
 
