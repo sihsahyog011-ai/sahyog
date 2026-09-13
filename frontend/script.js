@@ -1,37 +1,5 @@
 const defaultWorkers = [
-  {
-    id: 1,
-    name: "Arun Kumar",
-    trade: "Plumber",
-    location: "Salt Lake",
-    rate: 450,
-    years: 8,
-    rating: 4.9,
-    phone: "+919876543210",
-    bio: "Leaks, taps, bathroom fittings and small plumbing repairs."
-  },
-  {
-    id: 2,
-    name: "Sourav Das",
-    trade: "Electrician",
-    location: "New Town",
-    rate: 550,
-    years: 6,
-    rating: 4.8,
-    phone: "+919876543211",
-    bio: "House wiring, switches, fans, lighting and electrical repairs."
-  },
-  {
-    id: 3,
-    name: "Mita Roy",
-    trade: "Cleaner",
-    location: "Ballygunge",
-    rate: 350,
-    years: 5,
-    rating: 4.7,
-    phone: "+919876543212",
-    bio: "Regular home cleaning, kitchen cleaning and move-in cleaning."
-  },
+
   {
     id: 4,
     name: "Rakesh Mondal",
