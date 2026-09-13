@@ -1,0 +1,46 @@
+[
+    {
+        "id": 1,
+        "name": "Arun Kumar",
+        "trade": "Plumber",
+        "location": "Salt Lake",
+        "rate": 450,
+        "years": 8,
+        "rating": 4.9,
+        "phone": "+919876543210",
+        "bio": "Leaks, taps, bathroom fittings and small plumbing repairs."
+    },
+    {
+        "id": 2,
+        "name": "Sourav Das",
+        "trade": "Electrician",
+        "location": "New Town",
+        "rate": 550,
+        "years": 6,
+        "rating": 4.8,
+        "phone": "+919876543211",
+        "bio": "House wiring, switches, fans, lighting and electrical repairs."
+    },
+    {
+        "id": 3,
+        "name": "Ramesh Chandra",
+        "trade": "Plumber",
+        "location": "Behala",
+        "rate": 300,
+        "years": 15,
+        "rating": 5,
+        "phone": "+918597470350",
+        "bio": "I am very skilled plumber workerd on over 1500 projects"
+    },
+    {
+        "id": 4,
+        "name": "NIL",
+        "trade": "Electrician",
+        "location": "Dum Dum",
+        "rate": 200,
+        "years": 5,
+        "rating": 5,
+        "phone": "+918597470350",
+        "bio": "Local household service professional."
+    }
+]
