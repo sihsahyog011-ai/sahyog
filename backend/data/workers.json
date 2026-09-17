@@ -130,5 +130,16 @@
         "rating": 5,
         "phone": "+918597470350",
         "bio": "Local household service professional."
+    },
+    {
+        "id": 10,
+        "name": "Adarsha Chowdhury",
+        "trade": "Carpenter",
+        "location": "Park Circus",
+        "rate": 100,
+        "years": 5,
+        "rating": 5,
+        "phone": "789785656",
+        "bio": "bne"
     }
 ]
