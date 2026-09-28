@@ -1,0 +1,17 @@
+[33m996a625[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m HEAD@{0}: rebase (abort): returning to refs/heads/main
+[33ma7aa483[m HEAD@{1}: pull --rebase origin main (start): checkout a7aa48371ea0a2c17588b18c45352421a24e9916
+[33m996a625[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m HEAD@{2}: commit: Add multilingual worker cards and subscription receipt system
+[33m06987c4[m HEAD@{3}: commit: added a language section, fixed some bugs
+[33m64e62f0[m HEAD@{4}: commit: added some changes to the layout
+[33me5851b3[m HEAD@{5}: commit: Updated html
+[33m0152403[m HEAD@{6}: commit (merge): Merge remote changes and resolve index.html conflict
+[33meebcc59[m HEAD@{7}: rebase (abort): returning to refs/heads/main
+[33m65b71ed[m HEAD@{8}: pull --rebase origin main (start): checkout 65b71ed6c4a0555922e09e90250b4b114875dd19
+[33meebcc59[m HEAD@{9}: commit: Update Sahyog frontend design and layout
+[33mb6dfab3[m HEAD@{10}: commit: Add Sahyog frontend
+[33m0a04650[m HEAD@{11}: pull --rebase origin main (finish): returning to refs/heads/main
+[33m0a04650[m HEAD@{12}: pull --rebase origin main (pick): basic html and css
+[33m1ca0f7b[m HEAD@{13}: pull --rebase origin main (pick): Save frontend folder and starter files
+[33m23b4a0e[m HEAD@{14}: pull --rebase origin main (start): checkout 23b4a0ea811974f4102fb4d064060cb28ba1c388
+[33mb29b6db[m HEAD@{15}: commit: basic html and css
+[33mf1e274b[m HEAD@{16}: commit (initial): Save frontend folder and starter files
